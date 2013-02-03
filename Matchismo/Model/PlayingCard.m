@@ -14,6 +14,18 @@
 
 @implementation PlayingCard
 
+- (int)Match:(PlayingCard*) otherCard
+{
+    int store = 0;
+    if (self.rank == otherCard.rank) {
+        store = 4;
+    }else if(self.suit == otherCard.suit){
+        store = 1;
+    }
+    
+    return store;
+}
+
 + (NSArray*) validRanks
 {
     return @[@"?",@"A",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"J",@"Q",@"K"];
