@@ -14,16 +14,38 @@
 
 @implementation PlayingCard
 
-- (int)Match:(PlayingCard*) otherCard
+- (int) Match: (NSArray *) otherCards
 {
-    int store = 0;
-    if (self.rank == otherCard.rank) {
-        store = 4;
-    }else if(self.suit == otherCard.suit){
-        store = 1;
+    int score = 0;
+    BOOL matchRank = NO, matchSuit = NO;
+    
+    for (id obj in otherCards) {
+        if ([obj isMemberOfClass:[PlayingCard class]]) {
+            PlayingCard *playingCard = (PlayingCard*)obj;
+            if (self.rank == playingCard.rank) {
+                if (!matchSuit) {
+                    score += 4;
+                    matchRank = YES;
+                }else{
+                    score = 0;
+                    break;
+                }
+            }else if(self.suit == playingCard.suit){
+                if (!matchRank) {
+                    score += 1;
+                    matchSuit = YES;
+                }else{
+                    score = 0;
+                    break;
+                }
+            }else{
+                score = 0;
+                break;
+            }
+        }
     }
     
-    return store;
+    return score;
 }
 
 + (NSArray*) validRanks

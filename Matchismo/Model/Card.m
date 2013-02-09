@@ -33,19 +33,7 @@
     _unplayable = unplayable;
 }
 
-- (int) Match:(Card *)card
-{
-    int store = 0;
-    
-    if([self.contents isEqualToString: card.contents])
-    {
-        store = 1;
-    }
-    
-    return store;
-}
-
-- (int) MatchOther:(NSArray *)otherCards
+- (int) Match: (NSArray *) otherCards
 {
     int store = 0;
     
@@ -57,6 +45,24 @@
     }
 
     return store;
+}
+
++ (NSString*)getArrayContents:(NSArray*)cards
+{
+    NSString* result;
+    for (id obj in cards) {
+        if([obj isKindOfClass:[Card class]])
+        {
+            Card *card = (Card*)obj;
+            if (!result.length) {
+                result = card.contents;
+            }else{
+                result = [NSString stringWithFormat:@"%@ &%@", result, card.contents];
+            }
+        }
+    }
+    
+    return result;
 }
 
 @end

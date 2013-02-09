@@ -14,12 +14,16 @@
 
 // designated initialize
 - (id)initWithCardCount:(NSUInteger)count
-              usingDeck: (Deck*)deck;
+              usingDeck: (Deck*)deck
+        withMatchNumber:(NSUInteger)matchNumber;
 
-- (void)flipCardAtIndex: (NSUInteger)index;
+- (NSString*)flipCardAtIndex: (NSUInteger)index;
 
 - (Card*)cardAtIndex: (NSUInteger)index;
 
-@property (readonly, nonatomic) int store;
+@property (readonly, nonatomic) int score;
+@property (readonly, nonatomic) int matchScore;
+//@property (weak, nonatomic) Card *lastCard;
+//@property (weak, nonatomic) Card *currentCard;
 
 @end
