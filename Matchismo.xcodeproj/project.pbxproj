@@ -23,6 +23,7 @@
 		4C6B683416BAC30E00C4F8DE /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B682F16BAC30E00C4F8DE /* PlayingCard.m */; };
 		4C6B683516BAC30E00C4F8DE /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B683116BAC30E00C4F8DE /* PlayingCardDeck.m */; };
 		4C8EE9B916BAD793004062E8 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8EE9B816BAD793004062E8 /* CardMatchingGame.m */; };
+		4CC9E0DE16C668B80014DAA4 /* pokerback.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC9E0DD16C668B80014DAA4 /* pokerback.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		4C6B683116BAC30E00C4F8DE /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
 		4C8EE9B716BAD793004062E8 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGame.h; path = Model/CardMatchingGame.h; sourceTree = "<group>"; };
 		4C8EE9B816BAD793004062E8 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGame.m; path = Model/CardMatchingGame.m; sourceTree = "<group>"; };
+		4CC9E0DD16C668B80014DAA4 /* pokerback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokerback.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		4C6B680E16BAC13600C4F8DE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4CC9E0DD16C668B80014DAA4 /* pokerback.png */,
 				4C6B681616BAC13600C4F8DE /* CardGameAppDelegate.h */,
 				4C6B681716BAC13600C4F8DE /* CardGameAppDelegate.m */,
 				4C6B680F16BAC13600C4F8DE /* Matchismo-Info.plist */,
@@ -197,6 +200,7 @@
 				4C6B681C16BAC13600C4F8DE /* Default@2x.png in Resources */,
 				4C6B681E16BAC13600C4F8DE /* Default-568h@2x.png in Resources */,
 				4C6B682116BAC13600C4F8DE /* MainStoryboard.storyboard in Resources */,
+				4CC9E0DE16C668B80014DAA4 /* pokerback.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

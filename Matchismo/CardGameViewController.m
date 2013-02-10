@@ -45,21 +45,23 @@
 
 - (void)updateUI
 {
-    //UIImage *cardBackImage = [UIImage imageNamed:@"04.jpg"];
-    //NSLog([NSString stringWithFormat:@"height %f", (float)cardBackImage.size.height]);
+    UIImage *cardBackImage = [UIImage imageNamed:@"pokerback.png"];
+    //NSLog([NSString stringWithFormat:@" %f ", cardBackImage.size.height]);
+    UIImage *cardFrontImage = [[UIImage alloc] init];
     for(UIButton *cardButton in self.cardButtons)
     {
         Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
         cardButton.selected = card.isFaceUp;
         [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
-        //cardButton.imageEdgeInsets = UIEdgeInsetsMake(1, 1, 1, 1);
-        //[cardButton setImage:cardBackImage forState:UIControlStateNormal];
+        cardButton.imageEdgeInsets = UIEdgeInsetsMake(2, 2, 2, 2);
+        [cardButton setImage:cardBackImage forState:UIControlStateNormal];
+        [cardButton setImage:cardFrontImage forState:UIControlStateSelected];
+        [cardButton setImage:cardFrontImage forState:UIControlStateSelected|UIControlStateDisabled];
         cardButton.enabled = !card.isUnplayable;
         cardButton.alpha = card.isUnplayable ? 0.3 : 1;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-    self.modeSwitch.on = self.isThreeCardMode;
 }
 
 - (void)updateStatusLabel: (NSString*)text
@@ -87,7 +89,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	// set mode switch status
+    self.modeSwitch.on = self.isThreeCardMode;
 }
 
 - (void)didReceiveMemoryWarning

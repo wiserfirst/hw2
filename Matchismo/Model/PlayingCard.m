@@ -20,7 +20,7 @@
     BOOL matchRank = NO, matchSuit = NO;
     
     for (id obj in otherCards) {
-        if ([obj isMemberOfClass:[PlayingCard class]]) {
+        if ([obj isKindOfClass:[PlayingCard class]]) {
             PlayingCard *playingCard = (PlayingCard*)obj;
             if (self.rank == playingCard.rank) {
                 if (!matchSuit) {
