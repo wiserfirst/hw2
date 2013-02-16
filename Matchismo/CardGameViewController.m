@@ -9,6 +9,7 @@
 #import "CardGameViewController.h"
 #import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
+#import "GameResult.h"
 
 @interface CardGameViewController ()
 
@@ -20,10 +21,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *modeSwitch;
 @property (nonatomic, getter = isThreeCardMode) BOOL threeCardMode;
+@property (strong, nonatomic) GameResult *gameResult;
 
 @end
 
 @implementation CardGameViewController
+
+- (GameResult*)gameResult
+{
+    if (!_gameResult) {
+        _gameResult = [[GameResult alloc] init];
+    }
+    return _gameResult;
+}
 
 - (CardMatchingGame*)game
 {
@@ -72,6 +82,7 @@
 - (void)setFlipCount:(NSUInteger)flipCount {
     _flipCount = flipCount;
     self.flipLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
+    self.gameResult.score = self.game.score;
 }
 
 - (IBAction)flipCard:(UIButton*)sender {
@@ -83,7 +94,7 @@
     self.flipCount++;
     [self updateUI];
     [self updateStatusLabel:labelText];
-    NSLog(self.isThreeCardMode ? @"Three" : @"Two");
+    //NSLog(self.isThreeCardMode ? @"Three" : @"Two");
 }
     
 - (void)viewDidLoad
@@ -100,6 +111,7 @@
 }
 - (IBAction)dealButton:(UIButton *)sender {
     self.game = nil;
+    self.gameResult = nil;
     self.flipCount = 0;
     self.modeSwitch.UserInteractionEnabled = YES;
     self.modeSwitch.alpha = 1;
